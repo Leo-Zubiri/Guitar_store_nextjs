@@ -46,3 +46,26 @@ import Head from 'next/head'
     <meta name='description' content='Sitio Web de venta de guitarras' />
 </Head>
 ```
+
+**Link para el Routing**
+```js
+import Link from 'next/link'
+...
+
+```
+
+---
+
+## **Módulos CSS**
+Crear **componente.module.css**
+
+```js
+// Para importar el modulo de css
+import styles from '../styles/Header.module.css'
+
+...
+
+// Para aplicar las clases
+
+<h1 className={styles.h1}>  </h1>
+```

@@ -1,6 +1,8 @@
 import React from 'react'
 import Head from 'next/head'
 
+import Header from './Header'
+
 const Layout = ({children,pagina}) => {
   return (
     <div>
@@ -8,6 +10,8 @@ const Layout = ({children,pagina}) => {
           <title>Guitar LA- {pagina}</title>
           <meta name='description' content='Sitio Web de venta de guitarras' />
         </Head>
+
+        <Header />
 
         {children}
     </div>
