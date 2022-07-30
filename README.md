@@ -69,3 +69,17 @@ import styles from '../styles/Header.module.css'
 
 <h1 className={styles.h1}>  </h1>
 ```
+---
+
+## **Imagenes en next**
+
+```js
+// Las imagenes estan en la carpeta public
+import Image from 'next/image';
+
+...
+
+// Next ya apunta a la raiz de la carpeta public, height y width obligatorio
+ <Image width={400} height={100} src='/img/logo.svg' alt='logo'/>
+
+```
