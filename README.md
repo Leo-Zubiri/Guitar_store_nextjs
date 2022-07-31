@@ -82,4 +82,45 @@ import Image from 'next/image';
 // Next ya apunta a la raiz de la carpeta public, height y width obligatorio
  <Image width={400} height={100} src='/img/logo.svg' alt='logo'/>
 
+ // Layout
+ <Image layout='' src='' alt=''/>
+ // fill - ocupa todo el ancho de la pantalla
+ // responsive - Se ajusta el tamaño a la redimensión de la ventana, ancho y alto
+ // instrinsic - Escala solo en el ancho de la pantalla
+ // fixed - la imagen se queda fija a un tamaño establecido
+
 ```
+
+---
+
+## [**Strapi**](https://strapi.io/)
+CMS Headless 
+- Permite crear API´s dinamicas con respuestas JSON o graphql
+
+> Un CMS (Content Management System) o Sistema de Gestión de Contenidos es un sistema online que permite poner en marcha una página web de forma sencilla y rápida. Se trata de un software que te ayuda a administrar contenidos dinámicos, por ejemplo, un blog, un ecommerce o cualquier tipo de página web.
+
+**Instalación** <br>
+
+```npx create-strapi-app```
+
+Existe hasta la version 4. En el caso de la v3, se utiliza node <= v14.0
+
+
+**Ejecución**
+Una vez creado el proyecto para ejecutar, desde la ruta del proyecto: <br>
+
+```npm run develop```
+
+Se inicia un login para el proyecto:
+
+![](./doc/img/strapi-login.jpg)
+
+## **Strapi y Bases de datos**
+Soporta
+- sqlite
+- Postgre
+- Mongo
+
+### **Para usar Mongo**
+Servicio en nube para pruebas:
+[Crear cuenta y base de datos en MongoDB Atlas](https://www.mongodb.com/atlas/database)
