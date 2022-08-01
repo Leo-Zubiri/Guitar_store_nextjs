@@ -99,21 +99,6 @@ CMS Headless
 
 > Un CMS (Content Management System) o Sistema de Gestión de Contenidos es un sistema online que permite poner en marcha una página web de forma sencilla y rápida. Se trata de un software que te ayuda a administrar contenidos dinámicos, por ejemplo, un blog, un ecommerce o cualquier tipo de página web.
 
-**Instalación** <br>
-
-```npx create-strapi-app```
-
-Existe hasta la version 4. En el caso de la v3, se utiliza node <= v14.0
-
-
-**Ejecución**
-Una vez creado el proyecto para ejecutar, desde la ruta del proyecto: <br>
-
-```npm run develop```
-
-Se inicia un login para el proyecto:
-
-![](./doc/img/strapi-login.jpg)
 
 ## **Strapi y Bases de datos**
 Soporta
@@ -124,3 +109,54 @@ Soporta
 ### **Para usar Mongo**
 Servicio en nube para pruebas:
 [Crear cuenta y base de datos en MongoDB Atlas](https://www.mongodb.com/atlas/database)
+
+**Instalación** <br>
+
+```npx create-strapi-app  npx create-strapi-app@3.6.8```
+
+Existe hasta la version 4. En el caso de la v3, se utiliza node <= v14.0
+
+1. Custom Installation
+2. No template
+3. mongo db client
+4. set database name
+
+![](doc/img/mongo_strapi.jpg)
+
+![](doc/img/mongo_connect.jpg)
+
+![](doc/img/string_connection.jpg)
+
+Desde MongoCompass:
+![](doc/img/mongo_connection_string.jpg)
+
+**Ejecución** <br>
+Una vez creado el proyecto para ejecutar, desde la ruta del proyecto: <br>
+
+```npm run develop```
+
+Se inicia un login para el proyecto:
+
+![](./doc/img/strapi-login.jpg)
+
+---
+
+## **Tipos de Contenido strapi**
+
+![](doc/img/1.jpg)
+
+![](doc/img/2.jpg)
+
+![](doc/img/3.jpg)
+
+![](doc/img/4.jpg)
+
+![](doc/img/5.jpg)
+
+https://cloudinary.com/
+
+https://www.npmjs.com/package/@strapi/provider-upload-cloudinary
+
+npm i @strapi/provider-upload-cloudinary
+
+config/plugins.js
