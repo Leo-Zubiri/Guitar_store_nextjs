@@ -160,3 +160,21 @@ https://www.npmjs.com/package/@strapi/provider-upload-cloudinary
 npm i @strapi/provider-upload-cloudinary
 
 config/plugins.js
+
+---
+
+## Consultar APIs con NEXT
+
+![](doc/img/10.jpg)
+
+
+/** @type {import('next').NextConfig} */
+const nextConfig = {
+  reactStrictMode: true,
+  swcMinify: true,
+  images:{
+    domains:['localhost']
+  }
+}
+
+module.exports = nextConfig
