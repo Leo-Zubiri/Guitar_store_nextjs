@@ -4,6 +4,8 @@ import {formatearFecha} from '../helpers'
 import Link from 'next/link';
 import Image from 'next/image';
 
+import styles from '../styles/Entrada.module.css'
+
 const Entrada = ({entrada}) => {
 
     const {titulo,resumen,imagen,published_at,id} = entrada;
@@ -12,15 +14,14 @@ const Entrada = ({entrada}) => {
 
   return (
     <article> 
-        <div>
-
-            <Image width={800} height={600} src={`http://localhost:1337${imagen.url}`} alt={`Imagen blog ${titulo}`}/>
-            <h1>{titulo}</h1>
-            <p>{formatearFecha(published_at)}</p>
-            <p>{resumen}</p>
+        <Image priority='true' width={800} height={600} src={`http://localhost:1337${imagen.url}`} alt={`Imagen blog ${titulo}`}/>
+        <div className={styles.contenido}>           
+            <h3>{titulo}</h3>
+            <p className={styles.fecha}>{formatearFecha(published_at)}</p>
+            <p className={styles.resumen}>{resumen}</p>
 
             <Link href={`/blog/${id}`}>
-                Leer Entrada
+                <a className={styles.enlace}>Leer Entrada</a>
             </Link>
         </div>
     </article>
