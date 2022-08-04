@@ -32,7 +32,7 @@ const Blog = ({entradas}) => {
 //getServerSideProps()
 export async function getStaticProps(){
 
-  const url = `http://localhost:1337/blogs`
+  const url = `${process.env.API_URL}/blogs`
   const response = await fetch(url);
   const result = await response.json();
   //console.log(result);

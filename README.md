@@ -187,3 +187,110 @@ module.exports = nextConfig
     -webkit-line-clamp: 3;  
     overflow: scroll;
 }
+
+
+---
+
+## **Routing Dinámico**
+
+Desde la carpeta pages se debe crear un directorio con el nombre de la url de la cual descenderan dinamicamente
+Por ejemplo:
+
+Pages/blog    --> blog/12   blog/21   blog/1
+
+Posteriormente dentro de la carpeta blog se crea el componente con nombre del parametro en corchetes
+Por ejemplo: [id].js
+Lo anterior funciona como un comodín
+
+
+import {useRouter} from 'next/router'
+
+Para leer parametros de la url.
+
+const router = useRouter();
+console.log(router.query);
+
+```js
+import React from 'react'
+
+const EntradaBlog = ({entrada}) => {
+
+    console.log(entrada)
+
+  return (
+    <div>
+        <h1>Desde Entrada Blog</h1>
+    </div>
+  )
+}
+
+export async function getServerSideProps({query:{id}}){
+    console.log(id)
+
+    const url = `http://localhost:1337/blogs/${id}`
+    const response = await fetch(url);
+    const result = await response.json();
+
+    return {
+        props:{ 
+            entrada: result,
+        }
+    }
+}
+
+export default EntradaBlog
+```
+
+
+```js
+export async function getStaticPaths(){
+    const url = `http://localhost:1337/blogs`
+    const response = await fetch(url);
+    const result = await response.json();
+
+    const paths = result.map(entrada => ({
+        params: {id: entrada.id.toString()}
+    }))
+
+    return {
+        paths,
+        // true -> Retornar algunas rutas estaticamente y las otras se generan como se van solicitando. Ideal para millones de entradas
+        // false -> Pasar todas las rutas que se van a construir. Ideal para pocas.
+        // 'blocking' 
+        fallback: false
+    }
+}
+
+export async function getStaticProps({params:{id}}){
+    console.log(id)
+
+    const url = `http://localhost:1337/blogs/${id}`
+    const response = await fetch(url);
+    const result = await response.json();
+
+    return {
+        props:{ 
+            entrada: result,
+        }
+    }
+}
+```
+
+
+---
+
+## **Variables de Entorno en NEXT**
+Crear variables
+.env.local
+
+```JS
+
+API_URL = http://localhost:1337   //Para consumirse en el servidor
+
+NEXT_PUBLIC_API_URL = http://localhost:1337   // Para consumirse en el cliente
+
+...
+
+const url = `${process.env.API_URL}/blogs`
+```
+
