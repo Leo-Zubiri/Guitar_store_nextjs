@@ -294,3 +294,9 @@ NEXT_PUBLIC_API_URL = http://localhost:1337   // Para consumirse en el cliente
 const url = `${process.env.API_URL}/blogs`
 ```
 
+
+.texto {
+    white-space: pre-wrap;
+}
+
+routing dinámico error 404

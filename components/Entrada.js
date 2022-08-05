@@ -14,7 +14,7 @@ const Entrada = ({entrada}) => {
 
   return (
     <article> 
-        <Image priority='true' width={800} height={600} src={`http://localhost:1337${imagen.url}`} alt={`Imagen blog ${titulo}`}/>
+        <Image priority='true' width={800} height={600} src={`${process.env.NEXT_PUBLIC_API_URL}${imagen.url}`} alt={`Imagen blog ${titulo}`}/>
         <div className={styles.contenido}>           
             <h3>{titulo}</h3>
             <p className={styles.fecha}>{formatearFecha(published_at)}</p>
