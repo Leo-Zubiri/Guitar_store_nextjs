@@ -125,6 +125,7 @@ Existe hasta la version 4. En el caso de la v3, se utiliza node <= v14.0
 
 ![](doc/img/mongo_connect.jpg)
 
+En la página de atlas tenemos acceso a un string de conección, el cual debemos utilizar para enlazar con mongodb compass.
 ![](doc/img/string_connection.jpg)
 
 Desde MongoCompass:
@@ -135,7 +136,7 @@ Una vez creado el proyecto para ejecutar, desde la ruta del proyecto: <br>
 
 ```npm run develop```
 
-Se inicia un login para el proyecto:
+Se inicia un login para el proyectom, y de esta manera tener acceso al panel de control para gestionar el contenido.
 
 ![](./doc/img/strapi-login.jpg)
 
@@ -143,17 +144,35 @@ Se inicia un login para el proyecto:
 
 ## **Tipos de Contenido strapi**
 
+Se crean colecciones como una manera de agrupar el contenido. Por ejemplo: blogs, productos, noticias, etc.
 ![](doc/img/1.jpg)
 
+En este caso creamos el tipo de coleccion blog
 ![](doc/img/2.jpg)
 
+Seleccionamos todos los campos que tendrá un blog para ser rellenado.
 ![](doc/img/3.jpg)
 
+Una vez creado, si recargamos la pagina podremos ver que tenemos la opción de blog desde el panel de control. Dentro de ese apartado ya se pueden agregar entradas para la coleccion de blogs.
 ![](doc/img/4.jpg)
 
+Se llenan los campos y de esta manera se tendrá informacion relevante que podrá ser consultada mas adelante en formato json gracias a la API.
 ![](doc/img/5.jpg)
 
-https://cloudinary.com/
+Para que la informacion pueda ser consultada se debe ir a la opcion de settings. Desde ahí buscar el apartado de roles y editar el perfil público.
+![](doc/img/6.jpg)
+
+En este caso se habilitan las opciones de find y findone para permitir las consultas GET a la API
+![](doc/img/7.jpg)
+
+---
+
+## **Imagenes en un servidor externo**
+
+Crear una cuenta en [Cloudinary](https://cloudinary.com/)
+![](doc/img/8.jpg)
+
+
 
 https://www.npmjs.com/package/@strapi/provider-upload-cloudinary
 
