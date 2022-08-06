@@ -167,18 +167,48 @@ En este caso se habilitan las opciones de find y findone para permitir las consu
 
 ---
 
+<br>
+
 ## **Imagenes en un servidor externo**
 
-Crear una cuenta en [Cloudinary](https://cloudinary.com/)
+Crear una cuenta en [Cloudinary](https://cloudinary.com/).
+
+Desde esta pagina podremos ver opciones importantes para enlazar el servidor de imagenes:
 ![](doc/img/8.jpg)
 
+### **Instalar cloudinary en Strapi**
+Desde el proyecto de strapi para [instalar con npm](
+https://www.npmjs.com/package/@strapi/provider-upload-cloudinary) : 
+
+```npm i @strapi/provider-upload-cloudinary```
 
 
-https://www.npmjs.com/package/@strapi/provider-upload-cloudinary
+Creamos un archivo de variables de entorno donde colocaremos los datos de la página y posteriormente crearemos un archivo en una carpeta config/**plugins.js**
+![](doc/img/9.jpg)
 
-npm i @strapi/provider-upload-cloudinary
+Colocaremos el siguiente contenido:
 
-config/plugins.js
+```js
+module.exports = ({ env }) => ({
+    // ...
+    upload: {
+      config: {
+        provider: 'cloudinary',
+        providerOptions: {
+          cloud_name: env('CLOUDINARY_NAME'),
+          api_key: env('CLOUDINARY_KEY'),
+          api_secret: env('CLOUDINARY_SECRET'),
+        },
+        actionOptions: {
+          upload: {},
+          uploadStream: {},
+          delete: {},
+        },
+      },
+    },
+    // ...
+  });
+```
 
 ---
 
