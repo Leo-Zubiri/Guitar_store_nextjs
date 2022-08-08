@@ -349,3 +349,13 @@ const url = `${process.env.API_URL}/blogs`
 }
 
 routing dinámico error 404
+
+---
+
+Routing amigable
+
+La idea es que las url no sean tan variables como podría ser siempre apuntar hacia un ID.
+
+En el caso de Strapi 
+/blogs/mi-pagina  Routing dinamico para el front
+/blogs?url=mi-pagina   filtros para consultar a la API de Strapi

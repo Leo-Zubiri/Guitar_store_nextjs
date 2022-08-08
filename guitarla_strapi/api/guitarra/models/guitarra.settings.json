@@ -1,8 +1,8 @@
 {
   "kind": "collectionType",
-  "collectionName": "blogs",
+  "collectionName": "guitarras",
   "info": {
-    "name": "Blog",
+    "name": "Guitarra",
     "description": ""
   },
   "options": {
@@ -12,16 +12,16 @@
   },
   "pluginOptions": {},
   "attributes": {
-    "titulo": {
+    "nombre": {
       "type": "string",
       "required": true
     },
-    "resumen": {
-      "type": "string",
+    "descripcion": {
+      "type": "richtext",
       "required": true
     },
     "imagen": {
-      "model": "file",
+      "collection": "file",
       "via": "related",
       "allowedTypes": [
         "images"
@@ -30,13 +30,12 @@
       "required": true,
       "pluginOptions": {}
     },
-    "contenido": {
-      "type": "richtext",
-      "required": true
+    "precio": {
+      "type": "integer"
     },
     "url": {
       "type": "uid",
-      "targetField": "titulo"
+      "targetField": "nombre"
     }
   }
 }
