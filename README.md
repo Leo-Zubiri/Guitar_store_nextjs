@@ -359,3 +359,9 @@ La idea es que las url no sean tan variables como podría ser siempre apuntar ha
 En el caso de Strapi 
 /blogs/mi-pagina  Routing dinamico para el front
 /blogs?url=mi-pagina   filtros para consultar a la API de Strapi
+
+
+````js
+
+  const url = `${process.env.API_URL}/guitarras?_sort=precio:desc`;
+```
