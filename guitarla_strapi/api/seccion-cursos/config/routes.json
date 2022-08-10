@@ -1,0 +1,28 @@
+{
+  "routes": [
+    {
+      "method": "GET",
+      "path": "/seccion-cursos",
+      "handler": "seccion-cursos.find",
+      "config": {
+        "policies": []
+      }
+    },
+    {
+      "method": "PUT",
+      "path": "/seccion-cursos",
+      "handler": "seccion-cursos.update",
+      "config": {
+        "policies": []
+      }
+    },
+    {
+      "method": "DELETE",
+      "path": "/seccion-cursos",
+      "handler": "seccion-cursos.delete",
+      "config": {
+        "policies": []
+      }
+    }
+  ]
+}

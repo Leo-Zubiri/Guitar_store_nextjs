@@ -361,7 +361,38 @@ En el caso de Strapi
 /blogs?url=mi-pagina   filtros para consultar a la API de Strapi
 
 
-````js
+```js
 
   const url = `${process.env.API_URL}/guitarras?_sort=precio:desc`;
+```
+
+## **Multiples fetch sin perder Performance**
+```js
+
+  // Manera menos óptima
+  const url = `${process.env.API_URL}/guitarras?_sort=createdAt:desc`;
+  const response = await fetch(url);
+  const result = await response.json();
+
+  const url2 = `${process.env.API_URL}/seccion`;
+  const response2 = await fetch(url);
+  const result2 = await response.json();
+
+
+
+  // Realizar al mismo tiempo con promise all
+  const urlGuitarras = `${process.env.API_URL}/guitarras?_sort=createdAt:desc`;
+  const urlSeccionCursos = `${process.env.API_URL}/seccion-cursos`;
+
+  const [resGuitarras,resSeccion] = await Promise.all([
+    fetch(urlGuitarras),
+    fetch(urlSeccionCursos)
+  ])
+
+  const [guitarras,seccion] = await Promise.all([
+    resGuitarras.json(),
+    resSeccion.json()
+  ])
+
+
 ```

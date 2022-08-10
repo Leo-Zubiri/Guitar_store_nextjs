@@ -6,7 +6,7 @@ import Listado from '../components/Listado'
 
 const Tienda = ({guitarras}) => {
 
-  console.log(guitarras)
+  //console.log(guitarras)
 
   return (
     <Layout
