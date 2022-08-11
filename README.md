@@ -396,3 +396,31 @@ En el caso de Strapi
 
 
 ```
+
+---
+
+## **Alternativas para el CSS**
+
+Este código css solo afecta al componente.
+
+```JS
+<section style={{
+     backgroundColor: 'red'
+ }}>
+     ...
+</section>
+
+ // También:
+
+<section>
+     ...
+  <style jsx>{`
+      section{
+          background-color:red;
+      }
+  `}</style>
+</section>
+```
+
+
+  const urlBlogs = `${process.env.API_URL}/blogs?_limit=3`
