@@ -6,7 +6,7 @@ import ListadoBlog from '../components/ListadoBlog'
 
 const Blog = ({entradas}) => {
 
-  console.log(entradas)
+  //console.log(entradas)
 
   return (
     <Layout

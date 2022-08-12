@@ -10,7 +10,7 @@ const Entrada = ({entrada}) => {
 
     const {titulo,resumen,imagen,published_at,id,url} = entrada;
 
-    console.log(imagen.url)
+    //console.log(imagen.url)
 
   return (
     <article> 

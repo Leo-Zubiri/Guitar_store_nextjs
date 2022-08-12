@@ -424,3 +424,52 @@ Este código css solo afecta al componente.
 
 
   const urlBlogs = `${process.env.API_URL}/blogs?_limit=3`
+
+  ---
+
+  ## **Animacion de guitarra en el header**
+
+  ```js
+  import {useRouter} from 'next/router'
+  ...
+
+  const router = useRouter;
+  ...
+
+// Si estoy en la página de inicio
+{router.pathname === '/' && (
+ <img src='/img/header_guitarra.png' alt='imagen header guitarra' 
+ className={styles.guitarra}/>
+)}
+  ```
+
+```css
+.guitarra{
+  display: block;
+  position: absolute;
+  right: 0;
+  bottom: 0;
+
+  animation-name: mostrarImagen;
+  animation-duration: 1s;
+  animation-iteration-count: 1;
+  animation-delay: 0s;
+  animation-timing-function: ease-in-out;
+}
+
+@keyframes mostrarImagen{
+    0% {
+        opacity: 0;
+        transform: translateX(-10rem);
+    }
+
+    50%{
+        opacity: 0;
+    }
+
+    100%{
+        opacity: 1;
+        transform: translateX(0);
+    }
+}
+```

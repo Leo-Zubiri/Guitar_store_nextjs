@@ -6,7 +6,7 @@ const SeccionCurso = ({seccion}) => {
     const {titulo,Contenido,imagen} = seccion;
 
     const urlImagen = `${process.env.NEXT_PUBLIC_API_URL}${imagen[0].url}`
-    console.log(urlImagen)
+    //console.log(urlImagen)
     return (
     <section>
         <div className={`contenedor ${styles.grid}`}>

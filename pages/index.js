@@ -7,12 +7,12 @@ import SeccionCurso from '../components/SeccionCurso'
 import ListadoBlog from '../components/ListadoBlog'
 
 function Home({guitarras,seccion,blogs}) {
-  console.log(blogs) 
+  //console.log(blogs) 
 
   return (
 
 
-      <Layout pagina='Inicio'>
+      <Layout pagina='Inicio' guitarra={guitarras[2]}>
         <main className='contenedor'>
           <h1 className='heading'>Nuestra Colección</h1>
 

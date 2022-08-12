@@ -6,7 +6,7 @@ import Link from 'next/link';
 import styles from '../styles/Guitarra.module.css'
 
 const Guitarra = ({guitarra}) => {
-  console.log(guitarra)
+  //console.log(guitarra)
   
   const {descripcion,imagen,nombre,precio,url} = guitarra;
 
