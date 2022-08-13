@@ -473,3 +473,29 @@ Este código css solo afecta al componente.
     }
 }
 ```
+
+---
+
+## **State en Next**
+
+Para tener un State "global" se debe utilizar el hook useState en el archivo _app.js en pages.
+Se manda el state como props y se puede obtener en cualquier componente desestructurando la propiedad.
+
+```js
+import '../styles/normalize.css'
+import '../styles/globals.css'
+
+import { useState } from 'react'
+
+function MyApp({ Component, pageProps }) {
+  const [carrito, setCarrito] = useState([]);
+
+  return <Component 
+    {...pageProps} 
+    carrito={carrito}
+  />
+}
+
+export default MyApp
+
+```

@@ -1,8 +1,33 @@
 import '../styles/normalize.css'
 import '../styles/globals.css'
 
+import { useState } from 'react'
+
 function MyApp({ Component, pageProps }) {
-  return <Component {...pageProps} />
+  const [carrito, setCarrito] = useState([]);
+
+  const agregarCarrito = producto => {
+    if(carrito.some(pdto => pdto.id === producto.id)){
+      // Actualizar producto en el carrito
+      const carritoActualizado = carrito.map((articulo) => { 
+        if(articulo.id === producto.id){
+          articulo.cantidad = producto.cantidad;
+        }
+        return articulo;
+       });
+
+       setCarrito([carritoActualizado]);
+    }else {
+      // Nuevo producto
+      setCarrito([...carrito, producto]);
+    }
+    
+  }
+
+  return <Component {...pageProps} 
+    carrito={carrito}
+    agregarCarrito={agregarCarrito}
+  />
 }
 
 export default MyApp
