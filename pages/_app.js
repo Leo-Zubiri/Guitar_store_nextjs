@@ -1,12 +1,22 @@
 import '../styles/normalize.css'
 import '../styles/globals.css'
 
-import { useState } from 'react'
+import { useState,useEffect } from 'react'
 
 function MyApp({ Component, pageProps }) {
   const [carrito, setCarrito] = useState([]);
 
-  const agregarCarrito = producto => {
+  useEffect(() => {  
+    // cargar del localStorage ?? nullish coalesing 
+    const carritoLS = JSON.parse(localStorage.getItem('carrito')) ?? [];
+    setCarrito(carritoLS);
+  },[]);
+
+  useEffect(()=>{
+    localStorage.setItem('carrito',JSON.stringify(carrito));
+  },[carrito]);
+
+  const agregarCarrito = (producto) => {
     if(carrito.some(pdto => pdto.id === producto.id)){
       // Actualizar producto en el carrito
       const carritoActualizado = carrito.map((articulo) => { 
@@ -16,7 +26,7 @@ function MyApp({ Component, pageProps }) {
         return articulo;
        });
 
-       setCarrito([carritoActualizado]);
+       setCarrito(carritoActualizado);
     }else {
       // Nuevo producto
       setCarrito([...carrito, producto]);
