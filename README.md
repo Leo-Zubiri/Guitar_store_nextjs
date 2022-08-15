@@ -499,3 +499,22 @@ function MyApp({ Component, pageProps }) {
 export default MyApp
 
 ```
+
+---
+
+## Quitarle estilos css a un elemento
+
+```css
+.select {
+    all: unset
+}
+```
+
+```js
+  useEffect(() => { 
+    const calculoTotal = carrito.reduce( (total,producto) => total+ (producto.cantidad*producto.precio),0);
+
+    setTotal(calculoTotal);
+  },[carrito]);
+
+```

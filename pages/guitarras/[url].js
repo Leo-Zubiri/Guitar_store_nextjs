@@ -21,7 +21,7 @@ const Producto = ({guitarra,agregarCarrito}) => {
       }
       //agregar al carrito
       const guitarraSeleccionada = {
-        id,imagen:imagen.url,nombre,precio,cantidad
+        id,imagen:imagen[0].url,nombre,precio,cantidad
       }
 
       agregarCarrito(guitarraSeleccionada);
