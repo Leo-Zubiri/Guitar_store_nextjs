@@ -1,3 +1,25 @@
+## **CONTENIDO**
+
+  1. [NEXT JS](#id1)
+  2. [Strapi](#id2)
+  3. [CSS en Next](#id3)
+
+![](./doc/img/final.jpg) 
+
+---
+<br> <br>
+
+![](./doc/img/final2.jpg)
+
+---
+<br> <br>
+
+![](./doc/img/final3.jpg)
+
+---
+<br> <br>
+
+# **NEXT JS** <a id='id1'> </a>
 
 ## **Crear Proyecto NEXT JS**
 
@@ -56,21 +78,6 @@ import Link from 'next/link'
 
 ---
 
-## **Módulos CSS**
-Crear **componente.module.css**
-
-```js
-// Para importar el modulo de css
-import styles from '../styles/Header.module.css'
-
-...
-
-// Para aplicar las clases
-
-<h1 className={styles.h1}>  </h1>
-```
----
-
 ## **Imagenes en next**
 
 ```js
@@ -90,152 +97,9 @@ import Image from 'next/image';
  // fixed - la imagen se queda fija a un tamaño establecido
 
 ```
-
----
-
-## [**Strapi**](https://strapi.io/)
-CMS Headless 
-- Permite crear API´s dinamicas con respuestas JSON o graphql
-
-> Un CMS (Content Management System) o Sistema de Gestión de Contenidos es un sistema online que permite poner en marcha una página web de forma sencilla y rápida. Se trata de un software que te ayuda a administrar contenidos dinámicos, por ejemplo, un blog, un ecommerce o cualquier tipo de página web.
-
-
-## **Strapi y Bases de datos**
-Soporta
-- sqlite
-- Postgre
-- Mongo
-
-### **Para usar Mongo**
-Servicio en nube para pruebas:
-[Crear cuenta y base de datos en MongoDB Atlas](https://www.mongodb.com/atlas/database)
-
-**Instalación** <br>
-
-```npx create-strapi-app  npx create-strapi-app@3.6.8```
-
-Existe hasta la version 4. En el caso de la v3, se utiliza node <= v14.0
-
-1. Custom Installation
-2. No template
-3. mongo db client
-4. set database name
-
-![](doc/img/mongo_strapi.jpg)
-
-![](doc/img/mongo_connect.jpg)
-
-En la página de atlas tenemos acceso a un string de conección, el cual debemos utilizar para enlazar con mongodb compass.
-![](doc/img/string_connection.jpg)
-
-Desde MongoCompass:
-![](doc/img/mongo_connection_string.jpg)
-
-**Ejecución** <br>
-Una vez creado el proyecto para ejecutar, desde la ruta del proyecto: <br>
-
-```npm run develop```
-
-Se inicia un login para el proyectom, y de esta manera tener acceso al panel de control para gestionar el contenido.
-
-![](./doc/img/strapi-login.jpg)
-
----
-
-## **Tipos de Contenido strapi**
-
-Se crean colecciones como una manera de agrupar el contenido. Por ejemplo: blogs, productos, noticias, etc.
-![](doc/img/1.jpg)
-
-En este caso creamos el tipo de coleccion blog
-![](doc/img/2.jpg)
-
-Seleccionamos todos los campos que tendrá un blog para ser rellenado.
-![](doc/img/3.jpg)
-
-Una vez creado, si recargamos la pagina podremos ver que tenemos la opción de blog desde el panel de control. Dentro de ese apartado ya se pueden agregar entradas para la coleccion de blogs.
-![](doc/img/4.jpg)
-
-Se llenan los campos y de esta manera se tendrá informacion relevante que podrá ser consultada mas adelante en formato json gracias a la API.
-![](doc/img/5.jpg)
-
-Para que la informacion pueda ser consultada se debe ir a la opcion de settings. Desde ahí buscar el apartado de roles y editar el perfil público.
-![](doc/img/6.jpg)
-
-En este caso se habilitan las opciones de find y findone para permitir las consultas GET a la API
-![](doc/img/7.jpg)
-
----
-
-<br>
-
-## **Imagenes en un servidor externo**
-
-Crear una cuenta en [Cloudinary](https://cloudinary.com/).
-
-Desde esta pagina podremos ver opciones importantes para enlazar el servidor de imagenes:
-![](doc/img/8.jpg)
-
-### **Instalar cloudinary en Strapi**
-Desde el proyecto de strapi para [instalar con npm](
-https://www.npmjs.com/package/@strapi/provider-upload-cloudinary) : 
-
-```npm i @strapi/provider-upload-cloudinary```
-
-
-Creamos un archivo de variables de entorno donde colocaremos los datos de la página y posteriormente crearemos un archivo en una carpeta config/**plugins.js**
-![](doc/img/9.jpg)
-
-Colocaremos el siguiente contenido:
-
-```js
-module.exports = ({ env }) => ({
-    // ...
-    upload: {
-      config: {
-        provider: 'cloudinary',
-        providerOptions: {
-          cloud_name: env('CLOUDINARY_NAME'),
-          api_key: env('CLOUDINARY_KEY'),
-          api_secret: env('CLOUDINARY_SECRET'),
-        },
-        actionOptions: {
-          upload: {},
-          uploadStream: {},
-          delete: {},
-        },
-      },
-    },
-    // ...
-  });
-```
-
----
-
 ## Consultar APIs con NEXT
 
 ![](doc/img/10.jpg)
-
-
-/** @type {import('next').NextConfig} */
-const nextConfig = {
-  reactStrictMode: true,
-  swcMinify: true,
-  images:{
-    domains:['localhost']
-  }
-}
-
-module.exports = nextConfig
-
-
-
-.resumen{
-    display: -webkit-box;
-    -webkit-box-orient: vertical;
-    -webkit-line-clamp: 3;  
-    overflow: scroll;
-}
 
 
 ---
@@ -252,12 +116,14 @@ Por ejemplo: [id].js
 Lo anterior funciona como un comodín
 
 
+```js
 import {useRouter} from 'next/router'
 
-Para leer parametros de la url.
+//Para leer parametros de la url.
 
 const router = useRouter();
 console.log(router.query);
+```
 
 ```js
 import React from 'react'
@@ -361,10 +227,6 @@ En el caso de Strapi
 /blogs?url=mi-pagina   filtros para consultar a la API de Strapi
 
 
-```js
-
-  const url = `${process.env.API_URL}/guitarras?_sort=precio:desc`;
-```
 
 ## **Multiples fetch sin perder Performance**
 ```js
@@ -397,16 +259,65 @@ En el caso de Strapi
 
 ```
 
+
+
+
+## **State en Next**
+
+Para tener un State "global" se debe utilizar el hook useState en el archivo _app.js en pages.
+Se manda el state como props y se puede obtener en cualquier componente desestructurando la propiedad.
+
+```js
+import '../styles/normalize.css'
+import '../styles/globals.css'
+
+import { useState } from 'react'
+
+function MyApp({ Component, pageProps }) {
+  const [carrito, setCarrito] = useState([]);
+
+  return <Component 
+    {...pageProps} 
+    carrito={carrito}
+  />
+}
+
+export default MyApp
+
+```
+
+---
+
+
+<br>
+<br>
+<br>
+
+# **CSS en NEXT**  <a id='id3'> </a>
+
+## **Módulos CSS**
+Crear **componente.module.css**
+
+```js
+// Para importar el modulo de css
+import styles from '../styles/Header.module.css'
+
+...
+
+// Para aplicar las clases
+
+<h1 className={styles.h1}>  </h1>
+```
+
 ---
 
 ## **Alternativas para el CSS**
-
+> Otras formas para aplicar css sin los módulos.
+> 
 Este código css solo afecta al componente.
 
 ```JS
-<section style={{
-     backgroundColor: 'red'
- }}>
+<section style={{ backgroundColor: 'red'}}>
      ...
 </section>
 
@@ -418,12 +329,10 @@ Este código css solo afecta al componente.
       section{
           background-color:red;
       }
-  `}</style>
+  `}
+  </style>
 </section>
 ```
-
-
-  const urlBlogs = `${process.env.API_URL}/blogs?_limit=3`
 
   ---
 
@@ -476,33 +385,9 @@ Este código css solo afecta al componente.
 
 ---
 
-## **State en Next**
 
-Para tener un State "global" se debe utilizar el hook useState en el archivo _app.js en pages.
-Se manda el state como props y se puede obtener en cualquier componente desestructurando la propiedad.
 
-```js
-import '../styles/normalize.css'
-import '../styles/globals.css'
-
-import { useState } from 'react'
-
-function MyApp({ Component, pageProps }) {
-  const [carrito, setCarrito] = useState([]);
-
-  return <Component 
-    {...pageProps} 
-    carrito={carrito}
-  />
-}
-
-export default MyApp
-
-```
-
----
-
-## Quitarle estilos css a un elemento
+## **Quitarle estilos css a un elemento**
 
 ```css
 .select {
@@ -512,9 +397,171 @@ export default MyApp
 
 ```js
   useEffect(() => { 
-    const calculoTotal = carrito.reduce( (total,producto) => total+ (producto.cantidad*producto.precio),0);
+    const calculoTotal = carrito.reduce( (total,producto) => 
+    total+ (producto.cantidad*producto.precio),0);
 
     setTotal(calculoTotal);
   },[carrito]);
 
 ```
+
+## **Mostrar N líneas en un párrafo**
+
+```css
+.resumen{
+    display: -webkit-box;
+    -webkit-box-orient: vertical;
+    -webkit-line-clamp: 3;  
+    overflow: scroll;
+}
+```
+
+
+<br> <br> <br>
+
+---
+
+# [**Strapi**](https://strapi.io/) <a id='id2'> </a>
+CMS Headless 
+- Permite crear API´s dinamicas con respuestas JSON o graphql
+
+> Un CMS (Content Management System) o Sistema de Gestión de Contenidos es un sistema online que permite poner en marcha una página web de forma sencilla y rápida. Se trata de un software que te ayuda a administrar contenidos dinámicos, por ejemplo, un blog, un ecommerce o cualquier tipo de página web.
+
+
+## **Strapi y Bases de datos**
+Soporta
+- sqlite
+- Postgre
+- Mongo
+
+### **ATLAS MONGO DB**
+
+Servicio en nube para pruebas:
+[Crear cuenta y base de datos en MongoDB Atlas](https://www.mongodb.com/atlas/database)
+
+
+![](doc/img/mongo_connect.jpg)
+
+En la página de atlas tenemos acceso a un string de conección, el cual debemos utilizar para enlazar con mongodb compass.
+![](doc/img/string_connection.jpg)
+
+Desde MongoCompass:
+![](doc/img/mongo_connection_string.jpg)
+
+> Desde la página de Atlas debemos conseguir toda la información necesaria para su conección.
+> El nombre de la base de datos, el usuario, password y el Host que en este caso hace referencia al cluster.
+
+## **Instalación de Strapi** <br>
+
+```npx create-strapi-app  npx create-strapi-app@3.6.8```
+
+Existe hasta la version 4. En el caso de la v3, se utiliza node <= v14.0.
+En este caso se instalará la versión 3 debido al funcionamiento general favorable
+
+### **Opciones a elegir en la terminal**
+
+1. Custom Installation
+2. No template
+3. mongo db client
+4. set database name
+
+![](doc/img/mongo_strapi.jpg)
+
+
+
+
+**Ejecución** <br>
+Una vez creado el proyecto para ejecutar, desde la ruta del proyecto: <br>
+
+```npm run develop```
+
+Se inicia un login para el proyectom, y de esta manera tener acceso al panel de control para gestionar el contenido.
+
+![](./doc/img/strapi-login.jpg)
+
+---
+
+## **Tipos de Contenido strapi**
+
+Se crean colecciones como una manera de agrupar el contenido. Por ejemplo: blogs, productos, noticias, etc.
+![](doc/img/1.jpg)
+
+En este caso creamos el tipo de coleccion blog
+![](doc/img/2.jpg)
+
+Seleccionamos todos los campos que tendrá un blog para ser rellenado.
+![](doc/img/3.jpg)
+
+Una vez creado, si recargamos la pagina podremos ver que tenemos la opción de blog desde el panel de control. Dentro de ese apartado ya se pueden agregar entradas para la coleccion de blogs.
+![](doc/img/4.jpg)
+
+Se llenan los campos y de esta manera se tendrá informacion relevante que podrá ser consultada mas adelante en formato json gracias a la API.
+![](doc/img/5.jpg)
+
+Para que la informacion pueda ser consultada se debe ir a la opcion de settings. Desde ahí buscar el apartado de roles y editar el perfil público.
+![](doc/img/6.jpg)
+
+En este caso se habilitan las opciones de find y findone para permitir las consultas GET a la API
+![](doc/img/7.jpg)
+
+---
+
+## **Filtros con Strapi**
+
+```js
+const urlBlogs = `${process.env.API_URL}/blogs?_limit=3`
+```
+
+## **Sort de la informacion**
+
+```js
+  const url = `${process.env.API_URL}/guitarras?_sort=precio:desc`;
+```
+
+---
+
+<br>
+
+## **Imagenes en un servidor externo**
+
+Crear una cuenta en [Cloudinary](https://cloudinary.com/).
+
+Desde esta pagina podremos ver opciones importantes para enlazar el servidor de imagenes:
+![](doc/img/8.jpg)
+
+### **Instalar cloudinary en Strapi**
+Desde el proyecto de strapi para [instalar con npm](
+https://www.npmjs.com/package/@strapi/provider-upload-cloudinary) : 
+
+```npm i @strapi/provider-upload-cloudinary```
+
+
+Creamos un archivo de variables de entorno donde colocaremos los datos de la página y posteriormente crearemos un archivo en una carpeta config/**plugins.js**
+![](doc/img/9.jpg)
+
+Colocaremos el siguiente contenido:
+
+```js
+module.exports = ({ env }) => ({
+    // ...
+    upload: {
+      config: {
+        provider: 'cloudinary',
+        providerOptions: {
+          cloud_name: env('CLOUDINARY_NAME'),
+          api_key: env('CLOUDINARY_KEY'),
+          api_secret: env('CLOUDINARY_SECRET'),
+        },
+        actionOptions: {
+          upload: {},
+          uploadStream: {},
+          delete: {},
+        },
+      },
+    },
+    // ...
+  });
+```
+
+---
+
